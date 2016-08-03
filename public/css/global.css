@@ -1,0 +1,38 @@
+body{
+    background-color:silver;
+}
+.sp{
+    background: #ffffff;
+    box-shadow: 1px 1px 5px 0px;
+}
+.content-list{
+    margin: 0 5% 1% 5%;
+}
+.content-list h2{
+    text-align: center;
+}
+.content-list h2 a{
+    text-decoration: none;
+}
+.list-footer{
+    text-align: center;
+}
+.navbar-default{
+    background-color: rgba(71, 10, 80, 0.74);
+    border-color: #1B28BB;
+    color: #FFFFFF;
+}
+.navbar-default .navbar-brand{
+    color:#FFFFFF;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: rgba(71, 10, 80, 0.74);
+    background-color: #FFFFFF;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: rgba(71, 10, 80, 0.74);
+    background-color: #FFFFFF;
+}
