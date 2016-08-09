@@ -14,6 +14,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+        echo '<div style="margin:0 auto;text-align: center;font-size: 50px;">Welcome</div>';
+    }
+
+    public function blog()
+    {
         $lists = DB::query('select id,title,description,created_at from articles');
         $this->view = View::make('home.index')->with('lists',$lists);
     }

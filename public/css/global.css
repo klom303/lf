@@ -36,3 +36,26 @@ body{
     color: rgba(71, 10, 80, 0.74);
     background-color: #FFFFFF;
 }
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+    color:orangered;
+}
+.footer{
+    margin-top:50px;
+    height:50px;
+    width:100%;
+    text-align: center;
+}
+.article h2{
+    color: #404040;
+    font-family: 'Bitter', serif;
+    font-weight: normal;
+    text-align: center;
+}
+.article p{
+    color: #737373;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}

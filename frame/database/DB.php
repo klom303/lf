@@ -38,7 +38,7 @@ class DB
 
     protected function getDevice($device)
     {
-        $deviceClass = __NAMESPACE__ . '\\' . $device;
+        $deviceClass = __NAMESPACE__ . '\\' . strtoupper($device);
         $deviceObj = new $deviceClass();
         if (!$deviceObj instanceof DBInterface) {
             return null;

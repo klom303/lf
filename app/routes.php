@@ -6,5 +6,6 @@
  */
 return [
     '/'=>'HomeController@index',
+    '/blog'=>'HomeController@blog',
     '/article'=>'HomeController@detail',
 ];
