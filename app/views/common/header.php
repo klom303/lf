@@ -13,12 +13,11 @@
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">PHP</a></li>
-                    <li><a href="#">MySql</a></li>
-                    <li><a href="#">js/css</a></li>
-                    <li><a href="#">随笔</a></li>
-                    <li><a href="#">其他</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/blog">Blog</a></li>
+                    <li><a href="/other">Other</a></li>
+                    <li><a href="/frame">Frameworks</a></li>
+                    <li><a href="/about">About</a></li>
                 </ul>
             </div>
         </div>

@@ -10,7 +10,7 @@ class View
 {
     const VIEW_BASE_PATH = '/app/views/';
     public $view;
-    public $data;
+    public $data = [];
 
     public function __construct($view)
     {
@@ -34,6 +34,12 @@ class View
     public function with($key , $value = null)
     {
         $this->data[$key] = $value;
+        return $this;
+    }
+
+    public function withMore(array $params=[])
+    {
+        $this->data = array_merge($this->data,$params);
         return $this;
     }
 
