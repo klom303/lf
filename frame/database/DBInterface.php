@@ -13,4 +13,24 @@ interface DBInterface
     public function query($sql, $binds = []);
 
     public function execute($sql, $binds = []);
+
+    public function table($name);
+
+    public function select($fields);
+
+    public function delete();
+
+    public function update($condition, $value = null);
+
+    public function insert(array $values);
+
+    public function where($condition, $operator = null, $value = null);
+
+    public function orderBy($field, $order=null);
+
+    public function groupBy($fields);
+
+    public function having($condition);
+
+    public function limit($offset, $length);
 }

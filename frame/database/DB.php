@@ -57,4 +57,9 @@ class DB
         $instance = self::getInstance();
         return $instance->db->execute($sql, $binds);
     }
+
+    public static function table($name){
+        $instance = self::getInstance();
+        return $instance->db->table($name);
+    }
 }

@@ -1,6 +1,9 @@
 body{
     background-color:silver;
 }
+a:hover{
+    text-decoration: none;
+}
 hr{
     border:solid 1px rgb(192, 192, 192);
 }
