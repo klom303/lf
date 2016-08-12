@@ -1,15 +1,48 @@
 body{
-    background-color:silver;
+    background:url("../images/bg.jpg");
 }
 a:hover{
     text-decoration: none;
 }
 hr{
-    border:solid 1px rgb(192, 192, 192);
+    border-top: solid 1px rgba(181, 181, 181, 0.67);
+}
+img{
+    width:100%;
+}
+.cycle{
+    animation: cycle 5s linear infinite;
+    -moz-animation: cycle 5s linear infinite;	/* Firefox */
+    -webkit-animation: cycle 5s linear infinite;	/* Safari 和 Chrome */
+    -o-animation: cycle 5s linear infinite;	/* Opera */
+}
+@keyframes cycle
+{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@-moz-keyframes cycle /* Firefox */
+{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes cycle /* Safari 和 Chrome */
+{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@-o-keyframes cycle /* Opera */
+{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
 }
 .sp{
     background: #ffffff;
-    box-shadow: 1px 1px 5px 0px;
+    box-shadow: 1px 1px 5px 0;
+    border-radius: 5px;
 }
 .align-center{
     text-align: center;
