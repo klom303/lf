@@ -31,6 +31,15 @@ class Article extends Controller
         );
     }
 
+    public static function getArticleTotalNumer()
+    {
+        $count = DB::table('articles')->select('count(*) as `count`');
+        if(empty($count)){
+            return false;
+        }
+        return $count[0]['count'];
+    }
+
     public static function getClickRank()
     {
         return DB::table('articles')->where('status', '=', 1)

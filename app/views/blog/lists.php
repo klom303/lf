@@ -25,6 +25,9 @@
                         <span><i class="glyphicon glyphicon-eye-open"></i><?php echo $article['click_count'] ?></span>
                     </div>
                 <?php } ?>
+                    <div class="col-lg-12 content-list sp">
+                        <?php echo $paginateStr; ?>
+                    </div>
             </div>
         </div>
         <div class="col-lg-3">

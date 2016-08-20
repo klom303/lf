@@ -9,14 +9,22 @@ namespace App\Controllers;
 use App\Models\Article;
 use Frame\Controller;
 use Service\View;
+use Service\Page;
 
 class BlogController extends Controller
 {
     public function lists()
     {
         $type = isset($_GET['type']) ? (int)$_GET['type'] : 0;
+
         //文章主体
-        $lists = Article::getArticleList(0, 10 ,$type);
+        $pageStr = 'p';
+        $page = isset($_GET[$pageStr]) ? ((int)$_GET[$pageStr] ? (int)$_GET[$pageStr] : 1) : 1;
+        $limit = 5;
+        $offset = ($page - 1) * $limit;
+        $lists = Article::getArticleList($offset, $limit, $type);
+        $totalRecord = Article::getArticleTotalNumer();
+        $paginateStr = Page::paginate($totalRecord, $limit, $page, $pageStr);
         //侧边点击排行
         $clickRank = Article::getClickRank();
         //侧边文章分类
@@ -25,7 +33,8 @@ class BlogController extends Controller
         $this->view = View::make('blog.lists')->withMore([
             'lists' => $lists,
             'clickRank' => $clickRank,
-            'typeList' => $typeList
+            'typeList' => $typeList,
+            'paginateStr' => $paginateStr
         ]);
     }
 

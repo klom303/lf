@@ -1,3 +1,3 @@
 <div class="footer">
-    <p>Powered By lf Frameworks</p>
+    <p>Powered By lf Framework</p>
 </div>

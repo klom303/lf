@@ -39,6 +39,24 @@ img{
     from {transform: rotate(0deg);}
     to {transform: rotate(360deg);}
 }
+.page{
+    background-color: #ffffff;
+    border: solid 1px #66396d;
+    font-size: 18px;
+    padding: 5px;
+    display: inline-block;
+    min-width: 37px;
+    text-align: center;
+    margin-right: 10px;
+    color: #66396d;
+    text-decoration: none;
+}
+.page-current,.page:hover{
+    background-color: #66396d;
+    color:#ffffff;
+    text-decoration:none;
+}
+
 .sp{
     background: #ffffff;
     box-shadow: 1px 1px 5px 0;

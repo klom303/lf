@@ -16,7 +16,7 @@
                     <li><a href="/">Home</a></li>
                     <li class="active"><a href="/blog">Blog</a></li>
                     <li><a href="/other">Other</a></li>
-                    <li><a href="/frame">Frameworks</a></li>
+                    <li><a href="/frame">Framework</a></li>
                     <li><a href="/about">About</a></li>
                 </ul>
             </div>
