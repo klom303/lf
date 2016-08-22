@@ -18,8 +18,8 @@ class Page
     {
         $pageClass = 'page';
         $currentClass = 'page-current';
-        $prevBtnText = '上一页';
-        $nextBtnText = '下一页';
+        $prevBtnText = 'Prev';
+        $nextBtnText = 'Next';
         $prevBtnState = $currentIndex > 1 ? true : false;
         $nextBtnState = $currentIndex == $totalPages ? false : true;
         $pageItem = function ($index, $text) use ($pageClass, $pageStr, $currentIndex, $currentClass) {

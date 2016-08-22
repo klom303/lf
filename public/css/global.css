@@ -139,10 +139,16 @@ img{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.right-bar img{
+    margin-bottom: 10px;
+}
 .article h2{
     color: #404040;
     font-weight: normal;
     text-align: center;
+    padding-top: 20px;
+    margin-top:0;
+    margin-bottom: 0;
 }
 .article p{
     color: #737373;

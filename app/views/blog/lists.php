@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="keywords" content="枫飞落叶之地,楓飛落葉之地">
@@ -16,6 +16,11 @@
     <div class="row">
         <div class="col-lg-9">
             <div class="row">
+                <?php if(empty($lists)){ ?>
+                    <div class="col-lg-12 content-list sp">
+                        目前还没有内容...
+                    </div>
+                <?php }else{?>
                 <?php foreach ($lists as $article) {?>
                     <div class="col-lg-12 content-list sp">
                         <h2><a href="article?id=<?php echo $article['id']; ?>"><?php echo $article['title']; ?></a></h2>
@@ -28,6 +33,7 @@
                     <div class="col-lg-12 content-list sp">
                         <?php echo $paginateStr; ?>
                     </div>
+                <?php }?>
             </div>
         </div>
         <div class="col-lg-3">

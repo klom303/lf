@@ -34,7 +34,6 @@
                 <div class="col-lg-11 col-lg-offset-1 sp right-bar">
                     <h4>随便丢点图</h4>
                     <img src="<?php echo '/images/character.jpg';?>" />
-                    <p></p>
                 </div>
             </div>
         </div>

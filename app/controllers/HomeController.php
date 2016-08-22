@@ -7,11 +7,12 @@
 namespace App\Controllers;
 
 use Frame\Controller;
+use Service\View;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        echo '<div style="margin:0 auto;text-align: center;font-size: 50px;">Welcome</div>';
+        $this->view = View::make('home.index');
     }
 }

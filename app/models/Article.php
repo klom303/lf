@@ -31,9 +31,13 @@ class Article extends Controller
         );
     }
 
-    public static function getArticleTotalNumer()
+    public static function getArticleTotalNumber($type = 0)
     {
-        $count = DB::table('articles')->select('count(*) as `count`');
+        $count = DB::table('articles');
+        if($type){
+            $count->where('type','=',$type);
+        }
+        $count = $count->select('count(*) as `count`');
         if(empty($count)){
             return false;
         }

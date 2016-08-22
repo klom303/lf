@@ -16,14 +16,13 @@ class BlogController extends Controller
     public function lists()
     {
         $type = isset($_GET['type']) ? (int)$_GET['type'] : 0;
-
         //文章主体
         $pageStr = 'p';
         $page = isset($_GET[$pageStr]) ? ((int)$_GET[$pageStr] ? (int)$_GET[$pageStr] : 1) : 1;
         $limit = 5;
         $offset = ($page - 1) * $limit;
         $lists = Article::getArticleList($offset, $limit, $type);
-        $totalRecord = Article::getArticleTotalNumer();
+        $totalRecord = Article::getArticleTotalNumber($type);
         $paginateStr = Page::paginate($totalRecord, $limit, $page, $pageStr);
         //侧边点击排行
         $clickRank = Article::getClickRank();
