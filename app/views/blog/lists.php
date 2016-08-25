@@ -4,6 +4,8 @@
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="keywords" content="枫飞落叶之地,楓飛落葉之地">
     <meta name="description" content="枫飞落叶之地,楓飛落葉之地">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>楓飛落葉之地</title>
     <link type="image/x-icon" href="/images/favicon.ico " rel="shortcut icon">
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>

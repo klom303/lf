@@ -11,6 +11,7 @@ use Service\View;
 class Controller
 {
     protected $view;
+    protected $nav;
 
     public function __construct()
     {

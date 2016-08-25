@@ -13,6 +13,11 @@ use Service\Page;
 
 class BlogController extends Controller
 {
+    public function __construct()
+    {
+        $this->nav = 'Blog';
+    }
+
     public function lists()
     {
         $type = isset($_GET['type']) ? (int)$_GET['type'] : 0;
@@ -33,7 +38,8 @@ class BlogController extends Controller
             'lists' => $lists,
             'clickRank' => $clickRank,
             'typeList' => $typeList,
-            'paginateStr' => $paginateStr
+            'paginateStr' => $paginateStr,
+            'nav' => $this->nav
         ]);
     }
 
@@ -48,6 +54,9 @@ class BlogController extends Controller
             exit('404');
         }
         Article::clickIncrement($id, $detail['click_count']);
-        $this->view = View::make('blog.detail')->with('detail', $detail);
+        $this->view = View::make('blog.detail')->withMore([
+            'detail' => $detail,
+            'nav' => $this->nav
+        ]);
     }
 }

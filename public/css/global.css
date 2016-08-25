@@ -91,6 +91,7 @@ img{
     background-color: rgba(71, 10, 80, 0.74);
     border-color: #1B28BB;
     color: #FFFFFF;
+    z-index: 1;
 }
 .navbar-default .navbar-brand{
     color:#FFFFFF;
