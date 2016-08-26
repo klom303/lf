@@ -10,6 +10,19 @@ hr{
 img{
     width:100%;
 }
+
+@media (min-width: 1200px) {
+    .container{
+        width: 1200px;
+    }
+}
+@media (min-width: 1400px) {
+    .container{
+        width: 1400px;
+    }
+}
+
+
 .cycle{
     animation: cycle 5s linear infinite;
     -moz-animation: cycle 5s linear infinite;	/* Firefox */
@@ -111,8 +124,8 @@ img{
     color:orangered;
 }
 .footer{
-    margin-top:50px;
-    height:50px;
+    margin-top:25px;
+    height:25px;
     width:100%;
     text-align: center;
 }
@@ -158,4 +171,20 @@ img{
     -webkit-text-size-adjust: 100%;
     -ms-word-wrap: break-word;
     word-wrap: break-word;
+}
+
+.login{
+    padding: 20px;
+}
+.login-form input{
+    margin-bottom: 10px;
+}
+
+.login-form a{
+    margin-left: 20px;
+}
+
+.login-logo img{
+    display: block;
+    width: 90%;
 }

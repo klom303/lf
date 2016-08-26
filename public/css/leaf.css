@@ -18,6 +18,8 @@ body
     overflow: hidden;
     min-height: 500px;
     z-index: 1;
+    background: url("../images/lanxi.jpg") no-repeat 50% 50%;
+    background-size:cover;
 }
 
 

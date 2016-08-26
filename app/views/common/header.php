@@ -13,11 +13,16 @@
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li <?php if($nav=='Home') echo 'class="active"'; ?>><a href="/">Home</a></li>
-                    <li <?php if($nav=='Blog') echo 'class="active"'; ?>><a href="/blog">Blog</a></li>
-                    <li <?php if($nav=='Other') echo 'class="active"'; ?>><a href="/other">Other</a></li>
-                    <li <?php if($nav=='Framework') echo 'class="active"'; ?>><a href="/frame">Framework</a></li>
-                    <li <?php if($nav=='About') echo 'class="active"'; ?>><a href="/about">About</a></li>
+                    <li <?php if(isset($nav)&&$nav=='Home') echo 'class="active"'; ?>><a href="/">Home</a></li>
+                    <li <?php if(isset($nav)&&$nav=='Blog') echo 'class="active"'; ?>><a href="/blog">Blog</a></li>
+                    <li <?php if(isset($nav)&&$nav=='Other') echo 'class="active"'; ?>><a href="/other">Other</a></li>
+                    <li <?php if(isset($nav)&&$nav=='Framework') echo 'class="active"'; ?>><a href="https://github.com/klom303/lf">Framework</a></li>
+                    <li <?php if(isset($nav)&&$nav=='About') echo 'class="active"'; ?>><a href="/about">About</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+<!--                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>-->
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
                 </ul>
             </div>
         </div>

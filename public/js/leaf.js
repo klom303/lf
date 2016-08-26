@@ -166,6 +166,6 @@ function createALeaf() {
 
 $(function () {
     document.getElementById('leafContainer').style.minHeight =
-        (window.screen.availHeight-document.getElementsByClassName('navbar')[0].offsetHeight-100)*0.8+'px';
+        (window.screen.availHeight-document.getElementsByClassName('navbar')[0].offsetHeight)*0.8+'px';
     init();
 });

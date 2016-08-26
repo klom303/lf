@@ -8,4 +8,8 @@ return [
     '/'=>'HomeController@index',
     '/blog'=>'BlogController@lists',
     '/article'=>'BlogController@detail',
+    '/about'=>'AboutController@index',
+    '/other'=>'OtherController@index',
+    '/login'=>'AdminController@login',
+    '/postLogin'=>'AdminController@postLogin',
 ];
