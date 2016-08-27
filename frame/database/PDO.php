@@ -64,7 +64,7 @@ class PDO implements DBInterface
     public function update($condition, $value = null)
     {
         if (is_array($condition)) {
-            array_walk($condition, function ($conKey, $conValue) {
+            array_walk($condition, function ($conValue,$conKey) {
                 $this->sqlBuilder['update'][] = [
                     'condition' => '`' . $conKey . '`',
                     'value' => $conValue
@@ -200,8 +200,19 @@ class PDO implements DBInterface
                 $this->sqlBuilder = [];
                 return $this->execute($sql,$binds);
             case 'delete':
-                $sql.='DELETE FROM ';
-                break;
+                $sql.='DELETE FROM '.$this->sqlBuilder['table'];
+                if(isset($this->sqlBuilder['where'])){
+                    $where = '';
+                    array_walk($this->sqlBuilder['where'],function($item)use(&$where,&$binds){
+                        $where&&$where = 'AND ';
+                        $where.= $item['condition'] . ' '.$item['operator'].' ? ';
+                        $binds[] = $item['value'];
+                    });
+                    $sql.=' WHERE '.$where;
+                }
+                $sql.=' ;';
+                $this->sqlBuilder = [];
+                return $this->execute($sql,$binds);
             case 'insert':
                 $sql.='INSERT INTO '.$this->sqlBuilder['table'].' SET ';
                 $insertFields = '';

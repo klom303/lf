@@ -13,4 +13,8 @@ return [
     '/login'=>'AdminController@login',
     '/logout'=>'AdminController@logout',
     '/postLogin'=>'AdminController@postLogin',
+    '/manage'=>'AdminController@blogList',
+    '/deleteArticle'=>'AdminController@deleteArticle',
+    '/editArticle'=>'AdminController@editArticle',
+    '/postEditArticle'=>'AdminController@postEditArticle',
 ];

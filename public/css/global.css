@@ -188,3 +188,7 @@ img{
     display: block;
     width: 90%;
 }
+
+.blog-list{
+    padding: 10px;
+}

@@ -22,13 +22,16 @@ class Article extends Model
 
     public static function getArticleList($offset, $limit , $type = null)
     {
-        $db = DB::table('articles');
+        $sql = 'select `articles`.`id`,`articles`.`title`,`articles`.`description`,`articles`.`created_at`,';
+        $sql.='`articles`.`click_count`,`article_type`.`name` from `articles` left join `article_type`';
+        $sql.=' on `articles`.type = `article_type`.`id` ';
+        $binds = [];
         if($type){
-            $db = $db->where('type','=',$type);
+            $sql.= 'where `articles`.`type` = ? ';
+            $binds[] = $type;
         }
-        return $db->limit($offset, $limit)->select(
-            ['id', 'title', 'description', 'created_at', 'click_count']
-        );
+        $sql.=" limit {$offset},{$limit} ;";
+        return DB::query($sql,$binds);
     }
 
     public static function getArticleTotalNumber($type = 0)
@@ -60,5 +63,15 @@ class Article extends Model
     public static function getTypeList()
     {
         return DB::table('article_type')->select(['id', 'name']);
+    }
+
+    public static function deleteArticle($id)
+    {
+        return DB::table('articles')->where('id','=',$id)->delete();
+    }
+
+    public static function updateArticle($id,array $fields)
+    {
+        return DB::table('articles')->where('id','=',$id)->update($fields);
     }
 }

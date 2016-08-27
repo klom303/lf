@@ -18,6 +18,9 @@
                     <li <?php if(isset($nav)&&$nav=='Other') echo 'class="active"'; ?>><a href="/other">Other</a></li>
                     <li <?php if(isset($nav)&&$nav=='Framework') echo 'class="active"'; ?>><a href="https://github.com/klom303/lf">Framework</a></li>
                     <li <?php if(isset($nav)&&$nav=='About') echo 'class="active"'; ?>><a href="/about">About</a></li>
+                    <?php if($usr) {?>
+                        <li <?php if(isset($nav)&&$nav=='Admin') echo 'class="active"'; ?>><a href="/manage">Manage</a></li>
+                    <?php }?>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
