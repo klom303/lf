@@ -21,7 +21,7 @@
                 <form class="form-horizontal login-form" role="form">
                     <input class="form-control input-lg" type="text" id="username" placeholder="帐号" />
                     <input class="form-control input-lg" type="password" id="password" placeholder="密码" />
-                    <button id="login" class="btn btn-primary">登录</button>
+                    <button type="button" id="login" class="btn btn-primary">登录</button>
                     <a>忘记密码？</a>
                 </form>
             </div>

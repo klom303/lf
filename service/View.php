@@ -11,6 +11,7 @@ class View
     const VIEW_BASE_PATH = '/app/views/';
     public $view;
     public $data = [];
+    public static $shareData=[];
 
     public function __construct($view)
     {
@@ -23,12 +24,22 @@ class View
             throw new \InvalidArgumentException("视图名称不能为空！");
         } else {
             $viewFilePath = self::getFilePath($viewName);
+            $newView = null;
             if( is_file($viewFilePath)){
-                return new View($viewFilePath);
+                $newView =  new View($viewFilePath);
             }else{
                 throw new \UnexpectedValueException("视图文件不存在！");
             }
+            if(!empty(self::$shareData)){
+                $newView = $newView->withMore(self::$shareData);
+            }
+            return $newView;
         }
+    }
+
+    public static function share($key , $value = null)
+    {
+        self::$shareData[$key] = $value;
     }
 
     public function with($key , $value = null)

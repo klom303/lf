@@ -82,7 +82,7 @@ class PDO implements DBInterface
 
     public function insert(array $values)
     {
-        array_walk($values, function ($conKey, $conValue) {
+        array_walk($values, function ($conValue,$conKey) {
             $this->sqlBuilder['insert'][] = [
                 'condition' => '`' . $conKey . '`',
                 'value' => $conValue
@@ -203,8 +203,16 @@ class PDO implements DBInterface
                 $sql.='DELETE FROM ';
                 break;
             case 'insert':
-                $sql.='INSERT INTO ';
-                break;
+                $sql.='INSERT INTO '.$this->sqlBuilder['table'].' SET ';
+                $insertFields = '';
+                array_walk($this->sqlBuilder['insert'],function($item)use(&$insertFields,&$binds){
+                    $insertFields&&$insertFields.=',';
+                    $insertFields.= $item['condition'] . '= ? ';
+                    $binds[] = $item['value'];
+                });
+                $sql.=$insertFields.' ;';
+                $this->sqlBuilder = [];
+                return $this->execute($sql,$binds);
         }
         return false;
     }

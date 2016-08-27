@@ -11,5 +11,6 @@ return [
     '/about'=>'AboutController@index',
     '/other'=>'OtherController@index',
     '/login'=>'AdminController@login',
+    '/logout'=>'AdminController@logout',
     '/postLogin'=>'AdminController@postLogin',
 ];

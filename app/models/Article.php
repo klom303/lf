@@ -6,10 +6,10 @@
  */
 namespace App\Models;
 
-use Frame\Controller;
 use Frame\Database\DB;
+use Frame\Model;
 
-class Article extends Controller
+class Article extends Model
 {
     public static function getArticle($id, $fields = null)
     {

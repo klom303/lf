@@ -16,6 +16,10 @@ class BlogController extends Controller
     public function __construct()
     {
         $this->nav = 'Blog';
+        session_start();
+        $this->usr = isset($_SESSION['usr'])?$_SESSION['usr']:null;
+        View::share('usr',$this->usr);
+        View::share('nav',$this->nav);
     }
 
     public function lists()
@@ -38,8 +42,7 @@ class BlogController extends Controller
             'lists' => $lists,
             'clickRank' => $clickRank,
             'typeList' => $typeList,
-            'paginateStr' => $paginateStr,
-            'nav' => $this->nav
+            'paginateStr' => $paginateStr
         ]);
     }
 
@@ -55,8 +58,7 @@ class BlogController extends Controller
         }
         Article::clickIncrement($id, $detail['click_count']);
         $this->view = View::make('blog.detail')->withMore([
-            'detail' => $detail,
-            'nav' => $this->nav
+            'detail' => $detail
         ]);
     }
 }

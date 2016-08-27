@@ -12,10 +12,10 @@ class Controller
 {
     protected $view;
     protected $nav;
+    protected $usr;
 
     public function __construct()
     {
-
     }
 
     public function __destruct()

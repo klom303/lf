@@ -31,11 +31,11 @@
                         <span><i class="glyphicon glyphicon-time"></i><?php echo $article['created_at'];?></span>
                         <span><i class="glyphicon glyphicon-eye-open"></i><?php echo $article['click_count'] ?></span>
                     </div>
-                <?php } ?>
+                <?php } if($paginateStr){ ?>
                     <div class="col-lg-12 content-list sp">
                         <?php echo $paginateStr; ?>
                     </div>
-                <?php }?>
+                <?php }}?>
             </div>
         </div>
         <div class="col-lg-3">

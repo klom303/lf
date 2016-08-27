@@ -21,8 +21,12 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-<!--                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>-->
-                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                    <?php if($usr){?>
+                        <li><a href="javascript:void(0);"><span class="glyphicon glyphicon-user"></span> <?php echo $usr['username']; ?></a></li>
+                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 登出</a></li>
+                    <?php }else{?>
+                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                    <?php }?>
                 </ul>
             </div>
         </div>
