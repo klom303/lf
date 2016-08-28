@@ -26,7 +26,7 @@
                 </form>
             </div>
             <div class="col-lg-4">
-                <span class="login-logo"><img src="/images/leaf.png" /></span>
+                <span class="login-logo"><img src="http://oclr05hx7.bkt.clouddn.com/images/leaf.png" /></span>
             </div>
         </div>
     </div>

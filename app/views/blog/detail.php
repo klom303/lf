@@ -31,11 +31,11 @@
                 <div class="col-lg-11 col-lg-offset-1 sp right-bar">
                     <h4>不知道这里放些什么</h4>
                     <p>感受中二的力量吧。</p>
-                    <img class="cycle" src="<?php echo '/images/magic.png';?>" />
+                    <img class="cycle" src="<?php echo 'http://oclr05hx7.bkt.clouddn.com/images/magic.png';?>" />
                 </div>
                 <div class="col-lg-11 col-lg-offset-1 sp right-bar">
                     <h4>随便丢点图</h4>
-                    <img src="<?php echo '/images/character.jpg';?>" />
+                    <img src="<?php echo 'http://oclr05hx7.bkt.clouddn.com/images/character.jpg';?>" />
                 </div>
             </div>
         </div>

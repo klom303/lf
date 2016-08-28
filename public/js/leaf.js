@@ -126,7 +126,7 @@ function createALeaf() {
     var image = document.createElement('img');
 
     /* Randomly choose a leaf image and assign it to the newly created element */
-    image.src = 'images/leaf.png';
+    image.src = 'http://oclr05hx7.bkt.clouddn.com/images/leaf.png';
 
     leafDiv.style.top = "-100px";
 
