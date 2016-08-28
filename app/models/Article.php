@@ -74,4 +74,9 @@ class Article extends Model
     {
         return DB::table('articles')->where('id','=',$id)->update($fields);
     }
+
+    public static function createArticle(array $fields)
+    {
+        return DB::table('articles')->insert($fields);
+    }
 }

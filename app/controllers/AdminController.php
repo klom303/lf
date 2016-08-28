@@ -14,7 +14,7 @@ use Service\View;
 
 class AdminController extends Controller
 {
-    private $funcNeedLogin = ['blogList','deleteArticle','editArticle'];
+    private $funcNeedLogin = ['blogList','deleteArticle','editArticle','postEditArticle','createArticle'];
     public function __construct()
     {
         $this->nav = 'Admin';
@@ -82,9 +82,13 @@ class AdminController extends Controller
         $lists = Article::getArticleList($offset, $limit, $type);
         $totalRecord = Article::getArticleTotalNumber($type);
         $paginateStr = Page::paginate($totalRecord, $limit, $page, $pageStr);
+
+        $typeList = Article::getTypeList();
         $this->view = View::make('admin.blogList')->withMore([
             'lists'=>$lists,
-            'paginateStr'=>$paginateStr
+            'paginateStr'=>$paginateStr,
+            'typeList'=>$typeList,
+            'type'=>$type
         ]);
     }
 
@@ -132,7 +136,7 @@ class AdminController extends Controller
             exit(json_encode(['status'=>202,'message'=>'标题不能为空','data'=>null]));
         }
         $description = stripslashes(addslashes(trim($_POST['description'])));
-        $content = trim($_POST['content']);
+        $content = $_POST['content'];
         if(empty($title)){
             exit(json_encode(['status'=>203,'message'=>'正文不能为空','data'=>null]));
         }
@@ -144,6 +148,42 @@ class AdminController extends Controller
         );
         if(false===$result){
             exit(json_encode(['status'=>204,'message'=>'更新失败','data'=>null]));
+        }
+        exit(json_encode(['status'=>200,'message'=>'success','data'=>null]));
+    }
+
+    public function createArticle()
+    {
+        $typeList = Article::getTypeList();
+        $this->view = View::make('admin.create')->withMore([
+            'typeList'=>$typeList
+        ]);
+    }
+
+    public function postCreateArticle()
+    {
+        $title = stripslashes(addslashes(trim($_POST['title'])));
+        if(empty($title)){
+            exit(json_encode(['status'=>202,'message'=>'标题不能为空','data'=>null]));
+        }
+        $type = isset($_POST['type']) ? (int)$_POST['type'] : 0;
+        if (empty($type)) {
+            exit(json_encode(['status'=>201,'message'=>'请选择分类','data'=>null]));
+        }
+        $description = stripslashes(addslashes(trim($_POST['description'])));
+        $content = $_POST['content'];
+        if(empty($title)){
+            exit(json_encode(['status'=>203,'message'=>'正文不能为空','data'=>null]));
+        }
+        $result = Article::createArticle([
+                'title'=>$title,
+                'type'=>$type,
+                'description'=>$description,
+                'content'=>$content,
+                'created_at'=>date('Y-m-d H:i:s')]
+        );
+        if(false===$result){
+            exit(json_encode(['status'=>204,'message'=>'添加失败','data'=>null]));
         }
         exit(json_encode(['status'=>200,'message'=>'success','data'=>null]));
     }

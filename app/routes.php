@@ -17,4 +17,6 @@ return [
     '/deleteArticle'=>'AdminController@deleteArticle',
     '/editArticle'=>'AdminController@editArticle',
     '/postEditArticle'=>'AdminController@postEditArticle',
+    '/createArticle'=>'AdminController@createArticle',
+    '/postCreateArticle'=>'AdminController@postCreateArticle',
 ];

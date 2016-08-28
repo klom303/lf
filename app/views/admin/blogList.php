@@ -17,7 +17,20 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1 sp blog-list">
-            <div class="table-responsive">
+            <div class="col-lg-12">
+                <div class="col-lg-2" style="padding-left: 0;">
+                    <select id="typeSelect" class="form-control">
+                        <option value="0">全部</option>
+                        <?php foreach ($typeList as $typeItem){ ?>
+                            <option <?php if($typeItem['id'] == $type) echo 'selected="selected"';?> value="<?php echo $typeItem['id']; ?>">
+                                <?php echo $typeItem['name']; ?>
+                            </option>
+                        <?php }?>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary col-lg-offset-1" onclick="window.location.href='/createArticle';">添加</button>
+            </div>
+            <div class="table-responsive col-lg-12">
                 <table class="table">
                     <thead>
                     <tr>
@@ -77,6 +90,10 @@
 
         $('.edit').on('click',function(){
             window.location.href='/editArticle?id='+$(this).attr('data-id');
+        });
+
+        $('#typeSelect').on('change',function(){
+            window.location.href='/manage?type='+$(this).val();
         });
     });
 </script>

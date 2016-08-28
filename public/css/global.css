@@ -102,9 +102,10 @@ img{
 }
 .navbar-default{
     background-color: rgba(71, 10, 80, 0.74);
-    border-color: #1B28BB;
+    border-color: rgba(71, 10, 80, 0.74);
     color: #FFFFFF;
     z-index: 1;
+    border-radius:0;
 }
 .navbar-default .navbar-brand{
     color:#FFFFFF;
@@ -191,4 +192,8 @@ img{
 
 .blog-list{
     padding: 10px;
+}
+
+.table th, .table td {
+    vertical-align: middle!important;
 }
