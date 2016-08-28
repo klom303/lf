@@ -9,6 +9,7 @@
     <title><?php echo $detail['title']; ?>-楓飛落葉之地</title>
     <link type="image/x-icon" href="/images/favicon.ico " rel="shortcut icon">
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/markdown/css/editormd.css" rel="stylesheet"/>
     <link href="/css/global.css" rel="stylesheet"/>
 </head>
 <body>
@@ -20,7 +21,9 @@
             <div class="article">
                 <h2><?php echo $detail['title']; ?></h2>
                 <hr>
-                <p><?php echo $detail['content']; ?></p>
+                <div id="markdownView">
+                    <textarea id="markdownContent" style="display: none;"><?php echo $detail['content']; ?></textarea>
+                </div>
             </div>
             <!-- 多说评论框 start -->
             <div class="ds-thread" data-thread-key="<?php echo $detail['id']; ?>" data-title="<?php echo $detail['title']; ?>" data-url="/article?id=<?php echo $detail['id']; ?>"></div>
@@ -45,6 +48,28 @@
 <?php include __APP__.'/views/common/footer.php';?>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/markdown/editormd.min.js"></script>
+<script src="/markdown/lib/marked.min.js"></script>
+<script src="/markdown/lib/prettify.min.js"></script>
+<script src="/markdown/lib/raphael.min.js"></script>
+<script src="/markdown/lib/underscore.min.js"></script>
+<script src="/markdown/lib/sequence-diagram.min.js"></script>
+<script src="/markdown/lib/flowchart.min.js"></script>
+<script src="/markdown/lib/jquery.flowchart.min.js"></script>
+
+<script>
+    $(function () {
+        var EditormdView = editormd.markdownToHTML("markdownView", {
+            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true  // 默认不解析
+        });
+
+    });
+</script>
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     var duoshuoQuery = {short_name:"yejialu"};

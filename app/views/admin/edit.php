@@ -9,6 +9,7 @@
     <title>编辑-楓飛落葉之地</title>
     <link type="image/x-icon" href="/images/favicon.ico " rel="shortcut icon">
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/markdown/css/editormd.css" rel="stylesheet"/>
     <link href="/css/global.css" rel="stylesheet"/>
 </head>
 <body>
@@ -46,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label for="content" class="col-lg-1 control-label">正文</label>
-                    <div class="col-lg-11">
+                    <div class="col-lg-11" id="editormd">
                         <textarea rows="20" class="form-control" id="content"><?php echo $article['content'];?></textarea>
                     </div>
                 </div>
@@ -61,8 +62,17 @@
 <?php include __APP__.'/views/common/footer.php';?>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/markdown/editormd.min.js"></script>
 <script>
     $(document).ready(function () {
+        var editor = editormd(
+            'editormd',
+            {
+                height:'500px',
+                width:'90%',
+                path:'/markdown/lib/'
+            }
+        );
         $('#edit').on('click',function(){
             $.post(
                 '/postEditArticle',
@@ -71,7 +81,7 @@
                     title:$('#title').val(),
                     type:$('#type').val(),
                     description:$('#description').val(),
-                    content:$('#content').val()
+                    content:editor.getMarkdown()
                 },
                 function (resp) {
                     if(resp.status!=200){
