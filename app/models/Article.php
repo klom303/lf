@@ -30,6 +30,7 @@ class Article extends Model
             $sql.= 'where `articles`.`type` = ? ';
             $binds[] = $type;
         }
+        $sql.=' order by created_at desc ,id desc';
         $sql.=" limit {$offset},{$limit} ;";
         return DB::query($sql,$binds);
     }
