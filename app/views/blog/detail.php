@@ -9,7 +9,7 @@
     <title><?php echo $detail['title']; ?>-楓飛落葉之地</title>
     <link type="image/x-icon" href="/images/favicon.ico " rel="shortcut icon">
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/markdown/css/editormd.css" rel="stylesheet"/>
+    <link href="http://oclr05hx7.bkt.clouddn.com/markdown/css/editormd.css" rel="stylesheet"/>
     <link href="/css/global.css" rel="stylesheet"/>
 </head>
 <body>
@@ -48,14 +48,14 @@
 <?php include __APP__.'/views/common/footer.php';?>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="/markdown/editormd.min.js"></script>
-<script src="/markdown/lib/marked.min.js"></script>
-<script src="/markdown/lib/prettify.min.js"></script>
-<script src="/markdown/lib/raphael.min.js"></script>
-<script src="/markdown/lib/underscore.min.js"></script>
-<script src="/markdown/lib/sequence-diagram.min.js"></script>
-<script src="/markdown/lib/flowchart.min.js"></script>
-<script src="/markdown/lib/jquery.flowchart.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/editormd.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/marked.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/prettify.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/raphael.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/underscore.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/sequence-diagram.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/flowchart.min.js"></script>
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/jquery.flowchart.min.js"></script>
 
 <script>
     $(function () {
