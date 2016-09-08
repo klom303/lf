@@ -14,7 +14,14 @@ use Service\View;
 
 class AdminController extends Controller
 {
-    private $funcNeedLogin = ['blogList','deleteArticle','editArticle','postEditArticle','createArticle'];
+    private $funcNeedLogin = [
+        'blogList',
+        'deleteArticle',
+        'editArticle',
+        'postEditArticle',
+        'createArticle'
+    ];
+
     public function __construct()
     {
         $this->nav = 'Admin';
@@ -22,7 +29,7 @@ class AdminController extends Controller
         $this->usr = isset($_SESSION['usr'])?$_SESSION['usr']:null;
         View::share('usr',$this->usr);
         View::share('nav',$this->nav);
-        if(in_array(__FUNCTION__,$this->funcNeedLogin)){
+        if(in_array(__ACCESS_FUNCTION__,$this->funcNeedLogin)){
             $this->checkLogin();
         }
     }

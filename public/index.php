@@ -39,6 +39,10 @@ if(!array_key_exists($uri,$routes))
     exit("404");
 }
 list($controllerName,$actionName) = explode('@',$routes[$uri]);
+
+define('__ACCESS_CONTROLLER__',$controllerName);
+define('__ACCESS_FUNCTION__',$actionName);
+
 $controllerName = 'App\\Controllers\\'.$controllerName;
 $controllerObj = new $controllerName();
 $controllerObj->$actionName();
