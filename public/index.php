@@ -6,22 +6,7 @@
  * Time: 14:57
  */
 
-define('__PUBLIC__',__DIR__);
-define('__BASE__',__DIR__.'/../');
-define('__APP__',__DIR__.'/../app');
-define('__CONFIG__',__DIR__.'/../config');
-
-//加载必要项
-include __APP__.'/function.php';
-
-//加载自动载入
-spl_autoload_register(function($class){
-    $filePath = explode('\\',$class);
-    $class = $filePath[count($filePath)-1];
-    array_pop($filePath);
-    $filePath = implode('/',$filePath);
-    include __BASE__.strtolower($filePath).'/'.$class.'.php' ;
-});
+include __DIR__.'/../config/bootstrap.php';
 
 ////Ioc容器绑定服务
 //$container = \Frame\Container::getContainer();

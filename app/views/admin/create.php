@@ -69,7 +69,8 @@
             {
                 height:'500px',
                 width:'90%',
-                path:'http://oclr05hx7.bkt.clouddn.com/markdown/lib/'
+                path:'http://oclr05hx7.bkt.clouddn.com/markdown/lib/',
+                tex : true
             }
         );
         $('#add').on('click',function(){

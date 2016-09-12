@@ -197,3 +197,72 @@ img{
 .table th, .table td {
     vertical-align: middle!important;
 }
+
+.chat-box span, .chat-box p{
+    margin: 0;
+    font-size:14px;
+}
+
+.chat-display{
+    height:300px;
+    margin-bottom: 20px;
+}
+.chat-content{
+    width:70%;
+    height:300px;
+    overflow-y: auto;
+    float:left;
+    border: solid 1px #ccc;
+    padding: 10px;
+}
+.chat-input textarea{
+    margin-bottom: 10px;
+}
+.chat-user{
+    width:30%;
+    float:left;
+    height:300px;
+    border: solid 1px #ccc;
+    overflow-y: auto;
+}
+.chat-user ul{
+    list-style: none;
+}
+.chat-user ul li{
+    margin-left:20%;
+    height:25px;
+    font-size: 16px;
+}
+
+.chat-user h4{
+    text-align: center;
+}
+
+.chat-user hr{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+    width: 7px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear,
+    left bottom,
+    left top,
+    color-stop(0, rgba(71, 10, 80, 0.5)),
+    color-stop(0.5, #66396d),
+    color-stop(1, rgba(71, 10, 80, 0.5)));
+}
