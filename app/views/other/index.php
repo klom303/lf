@@ -17,14 +17,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1 content-list sp">
-            <p>正在学习WebSocket推送，这里先放个自己写的小聊天室试试。</p>
+            <p>正在学习WebSocket推送，这里先放个自己写的小聊天室demo试试。</p>
             <div class="chat-box">
                 <div class="chat-display">
                     <div id="output" class="chat-content">
 
                     </div>
                     <div class="chat-user">
-                        <h4>在线的用户</h4>
+                        <h4>在线的用户(<span id="userCount" style="font-size:18px;">0</span>/20)</h4>
                         <hr>
                         <ul id="userList"></ul>
                     </div>
@@ -49,10 +49,12 @@
     var output;
     var userList;
     var nickname;
+    var userCount;
 
     function init() {
         output = document.getElementById("output");
         userList = document.getElementById('userList');
+        userCount = document.getElementById('userCount');
         testWebSocket();
     }
 
@@ -75,8 +77,12 @@
     function onOpen(evt) {
         writeToScreen("聊天室连接成功...");
         var nickname = '';
-        while(nickname==''||!nickname){
+        while(nickname==''){
             nickname = prompt("请输入昵称", "匿名");
+        }
+        if(!nickname){
+            websocket.close();
+            return;
         }
         doRename(nickname);
     }
@@ -87,16 +93,24 @@
 
     function onMessage(evt) {
         var msg = JSON.parse(evt.data);
-        console.log(msg);
         if(msg.type=='rename'){
-            nickname = msg.data;
-            writeToScreen('现在你的昵称是：<span style="color: blue;">'+msg.data+'</span>');
+            nickname = msg.data.nickname;
+            writeToScreen('现在你的昵称是：<span style="color: blue;">'+msg.data.nickname+'</span>');
+            addToUserList(msg.data.id,msg.data.nickname+'（我）');
+            for(var index=0; index<msg.data.onlineUsers.length; index++){
+                addToUserList(msg.data.onlineUsers[index].id,msg.data.onlineUsers[index].nickname);
+            }
+            setCurrentUserCount();
         }else if(msg.type=='chat'){
             writeToScreen('<span style="color: blue;">'+ msg.data+'</span>');
         }else if(msg.type == 'connect'){
-            
+            writeToScreen(msg.data.nickname+" 加入了聊天");
+            addToUserList(msg.data.id,msg.data.nickname);
+            setCurrentUserCount();
         }else if(msg.type == 'disconnect'){
-
+            writeToScreen(msg.data.nickname+" 退出了聊天");
+            deleteFromUserList(msg.data.id,msg.data.nickname);
+            setCurrentUserCount();
         }
     }
 
@@ -130,7 +144,6 @@
     function addToUserList(id,nickname) {
         var user = parseDom('<li data-id="'+id+'"><a><span class="glyphicon glyphicon-user"></span></a>&nbsp;&nbsp;<span>'
             +nickname+'</span></li>');
-        console.log(user);
         userList.appendChild(user[0]);
     }
     
@@ -142,6 +155,10 @@
                 break;
             }
         }
+    }
+    
+    function setCurrentUserCount() {
+        userCount.innerHTML = userList.childNodes.length;
     }
 
     function parseDom(arg) {
@@ -167,6 +184,9 @@
         }
         doSend(sendData);
     };
+    document.getElementById('clear').onclick= function(){
+        document.getElementById('input').value = '';
+    }
 </script>
 </body>
 </html>

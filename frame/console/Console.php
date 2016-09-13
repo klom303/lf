@@ -45,6 +45,11 @@ class Console
     private function showWelcome()
     {
         $this->printScreen('----- Welcome To lf Frame Command Mode -----');
+        $this->printScreen('Here list the available commands in the following .');
+        $commands = include __CONFIG__.'/console.php';
+        array_walk($commands,function($command,$key){
+            $this->printScreen($key."\t\t".$command['description']);
+        });
     }
 
     private function printScreen($message)
@@ -59,7 +64,7 @@ class Console
             $this->printScreen('command '.$this->input->commandHandle.' is not found');
             exit;
         }
-        return new $commands[trim($this->input->commandHandle)];
+        return new $commands[trim($this->input->commandHandle)]['class'];
     }
 
 }

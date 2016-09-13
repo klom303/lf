@@ -1,4 +1,7 @@
 <?php
 return [
-    'socket:run' => \App\Console\BootSocket::class
+    'socket:run' => [
+        'class'=>\App\Console\BootSocket::class,
+        'description'=>'启动socket服务'
+    ]
 ];

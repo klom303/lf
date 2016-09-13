@@ -17,7 +17,17 @@ class ChatBox extends WebSocket
                     [
                         'status'=>$status,
                         'type'=>'rename',
-                        'data'=>$msg['value']
+                        'data'=>[
+                            'id'=>$user->id,
+                            'nickname'=>$user->nickname,
+                            'onlineUsers'=>$this->getOnlineUsers($user)
+                        ]
+                    ]);
+                $this->multiSendToClient($user,
+                    [
+                        'status'=>true,
+                        'type'=>'connect',
+                        'data'=>['id'=>$user->id,'nickname'=>$user->nickname]
                     ]);
                 break;
             case 'chat':
@@ -30,6 +40,41 @@ class ChatBox extends WebSocket
                 break;
         }
 
+    }
+
+    public function disconnect($clientSocket)
+    {
+        $found = null;
+        $n = count($this->users);
+        $user = null;
+        for($i = 0; $i<$n; $i++)
+        {
+            if($this->users[$i]->socket == $clientSocket)
+            {
+                $found = $i;
+                $user = $this->users[$i];
+                break;
+            }
+        }
+        $index = array_search($clientSocket,$this->sockets);
+
+        if(!is_null($found))
+        {
+            array_splice($this->users, $found, 1);
+            array_splice($this->sockets, $index, 1);
+
+            socket_close($clientSocket);
+            $this->say($clientSocket." DISCONNECTED!");
+        }
+
+        if($user->nickname){
+            $this->multiSendToClient($user,
+                [
+                    'status'=>true,
+                    'type'=>'disconnect',
+                    'data'=>['id'=>$user->id,'nickname'=>$user->nickname]
+                ]);
+        }
     }
 
     protected function rename($id,$newName){
@@ -62,5 +107,15 @@ class ChatBox extends WebSocket
     {
         $msg = json_encode($msg);
         $this->multiSend($user->socket, $msg);
+    }
+
+    protected function getOnlineUsers($self){
+        $onlineUsers = [];
+        foreach ($this->users as $user) {
+            if($user->socket!=$self->socket && $user->handshake && $user->nickname){
+                $onlineUsers[]=['id'=>$user->id,'nickname'=>$user->nickname];
+            }
+        }
+        return $onlineUsers;
     }
 }
