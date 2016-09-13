@@ -55,7 +55,7 @@
 <!--<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/underscore.min.js"></script>-->
 <!--<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/sequence-diagram.min.js"></script>-->
 <!--<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/flowchart.min.js"></script>-->
-<!--<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/jquery.flowchart.min.js"></script>-->
+<script src="http://oclr05hx7.bkt.clouddn.com/markdown/lib/jquery.flowchart.min.js"></script>
 
 <script>
     $(function () {
