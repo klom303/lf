@@ -1,3 +1,6 @@
+*{
+    font-family: "YaHei Consolas Hybrid", Consolas, "微软雅黑", "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Helvetica, "Monaco", courier, monospace;
+}
 body{
     background:url("http://oclr05hx7.bkt.clouddn.com/images/bg.jpg");
 }
