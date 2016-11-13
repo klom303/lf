@@ -24,4 +24,9 @@ class OtherController extends Controller
     {
         $this->view = View::make('other.index');
     }
+
+    public function healCalculator()
+    {
+        $this->view = View::make('other.wow.heal_calculator');
+    }
 }

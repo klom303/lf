@@ -19,4 +19,5 @@ return [
     '/postEditArticle'=>'AdminController@postEditArticle',
     '/createArticle'=>'AdminController@createArticle',
     '/postCreateArticle'=>'AdminController@postCreateArticle',
+    '/wow/heal-calculator'=>'OtherController@healCalculator',
 ];
